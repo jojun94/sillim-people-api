@@ -3,7 +3,6 @@ package net.jojun.sillimpeople.endpoint;
 import net.jojun.sillimpeople.core.service.UserService;
 import net.jojun.sillimpeople.domain.UserVO;
 import net.jojun.sillimpeople.repository.UserRepository;
-import org.h2.engine.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

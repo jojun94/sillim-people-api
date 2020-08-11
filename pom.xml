@@ -55,10 +55,11 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>compile</scope>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.4</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -69,5 +70,14 @@
             </plugin>
         </plugins>
     </build>
-
+    <developers>
+        <developer>
+            <id>jojun9475</id>
+            <name>조준형</name>
+            <email>jojun9475@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
 </project>
