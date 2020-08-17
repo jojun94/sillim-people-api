@@ -3,10 +3,7 @@ package net.jojun.sillimpeople.domain;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by JOJUN.
@@ -14,14 +11,15 @@ import javax.persistence.Id;
  */
 //  @Entitiy : JPA가 관리하는 클래스를 의미, @Id PK 지정,
 @Data
-@Entity(name="user")
+@Entity(name="users")
 public class UserVO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int rnum;
 
+    /*@GeneratedValue(strategy = GenerationType.AUTO)
+    private int rnum;*/
+    @Id
     private String name;
     private int age;
+    private String locale;
     // 기본생성자는 public 또는 protectec ,
     // private 으로 사용 시 추후에 Lazy Loading 사용 시 Proxy 관련 예외가 발생
     protected UserVO(){

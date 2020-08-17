@@ -32,8 +32,9 @@ public class UserController {
         return "HelloWorld";
     }
 
-    @PostMapping("/insertUser")
+    @PostMapping("/AddUser")
     public ResponseEntity<UserVO> insertUser(UserVO user){
+        System.out.println(user.toString());
         return new ResponseEntity<UserVO>(UserService.save(user), HttpStatus.OK);
     }
     @GetMapping("/selectAllUser")
