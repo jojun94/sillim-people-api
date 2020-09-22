@@ -1,6 +1,6 @@
-package net.jojun.sillimpeople.repository;
+package net.jojun.friends.repository;
 
-import net.jojun.sillimpeople.domain.UserVO;
+import net.jojun.friends.domain.UserVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

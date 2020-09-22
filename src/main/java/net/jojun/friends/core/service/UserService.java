@@ -1,6 +1,6 @@
-package net.jojun.sillimpeople.core.service;
+package net.jojun.friends.core.service;
 
-import net.jojun.sillimpeople.domain.UserVO;
+import net.jojun.friends.domain.UserVO;
 
 import java.util.List;
 

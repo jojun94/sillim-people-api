@@ -1,6 +1,5 @@
-package net.jojun.sillimpeople.domain;
+package net.jojun.friends.domain;
 
-import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;

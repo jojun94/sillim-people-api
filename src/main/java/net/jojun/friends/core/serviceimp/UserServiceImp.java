@@ -1,8 +1,8 @@
-package net.jojun.sillimpeople.core.serviceimp;
+package net.jojun.friends.core.serviceimp;
 
-import net.jojun.sillimpeople.core.service.UserService;
-import net.jojun.sillimpeople.domain.UserVO;
-import net.jojun.sillimpeople.repository.UserRepository;
+import net.jojun.friends.core.service.UserService;
+import net.jojun.friends.domain.UserVO;
+import net.jojun.friends.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package net.jojun.sillimpeople.endpoint;
+package net.jojun.friends.endpoint;
 
-import net.jojun.sillimpeople.core.service.UserService;
-import net.jojun.sillimpeople.domain.UserVO;
-import net.jojun.sillimpeople.repository.UserRepository;
+import net.jojun.friends.core.service.UserService;
+import net.jojun.friends.domain.UserVO;
+import net.jojun.friends.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
