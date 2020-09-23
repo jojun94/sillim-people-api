@@ -16,4 +16,6 @@ public interface UserService {
     public List<UserVO> findByAge(int age);
 
     public UserVO save(UserVO user);
+
+    public void delete(UserVO user);
 }

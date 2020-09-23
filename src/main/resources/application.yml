@@ -5,7 +5,8 @@ spring:
   datasource:
 #    platform: oracle
     url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+    driver-class-name: oracle.jdbc.OracleDriver
     username: jojun2
     password: jojun9475
     hikari:
@@ -13,3 +14,5 @@ spring:
       maximum-pool-size: 10
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto : none
