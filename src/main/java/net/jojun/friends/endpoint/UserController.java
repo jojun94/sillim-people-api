@@ -3,13 +3,10 @@ package net.jojun.friends.endpoint;
 import net.jojun.friends.core.service.UserService;
 import net.jojun.friends.domain.UserVO;
 import net.jojun.friends.repository.UserRepository;
-import oracle.ucp.proxy.annotation.Post;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
