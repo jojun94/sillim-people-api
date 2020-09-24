@@ -1,6 +1,6 @@
-package net.jojun.friends.core.serviceimp;
+package net.jojun.friends.service.impl;
 
-import net.jojun.friends.core.service.UserService;
+import net.jojun.friends.service.UserService;
 import net.jojun.friends.domain.UserVO;
 import net.jojun.friends.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImp implements UserService {
+    //TODO : BEAN 의존성 주입의 3가지 방법 알아보기 , DELETE 정리
 
     @Autowired
     UserRepository UserRepository;
@@ -47,10 +48,6 @@ public class UserServiceImp implements UserService {
         return user;
     }
 
-    @Override
-    public void delete(UserVO user) {
-        UserRepository.delete(user);
-    }
 
 
 }

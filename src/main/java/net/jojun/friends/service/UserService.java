@@ -1,4 +1,4 @@
-package net.jojun.friends.core.service;
+package net.jojun.friends.service;
 
 import net.jojun.friends.domain.UserVO;
 
@@ -16,6 +16,4 @@ public interface UserService {
     public List<UserVO> findByAge(int age);
 
     public UserVO save(UserVO user);
-
-    public void delete(UserVO user);
 }

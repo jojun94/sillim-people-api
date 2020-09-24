@@ -1,6 +1,6 @@
 package net.jojun.friends.endpoint;
 
-import net.jojun.friends.core.service.UserService;
+import net.jojun.friends.service.UserService;
 import net.jojun.friends.domain.UserVO;
 import net.jojun.friends.repository.UserRepository;
 import org.slf4j.Logger;
@@ -14,43 +14,48 @@ import java.util.List;
 
 /**
  * Created by JOJUN.
+ * REST API SERVER의 CRUD 연습 Controller , JPA 연습
  * Date: 2020-07-07
  */
+//TODO : BEAN 의존성 주입의 3가지 방법 알아보기
 @RestController
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    UserService UserService;
+    UserService userService;
+
     @Autowired
-    UserRepository UserRepository;
+    UserRepository userRepository;
 
     @GetMapping
     public String helloWorld(){
         return "HelloWorld";
     }
 
-    @PostMapping("/AddUser")
-    public ResponseEntity<UserVO> insertUser(UserVO user){
-        System.out.println(user.toString());
-        return new ResponseEntity<UserVO>(UserService.save(user), HttpStatus.OK);
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public ResponseEntity<UserVO> insertUser(@RequestBody UserVO user){
+        userService.save(user);
+        return new ResponseEntity<UserVO>(user, HttpStatus.OK);
     }
-    @GetMapping("/selectAllUser")
+
+    @GetMapping("/user/list")
     public ResponseEntity<List<UserVO>> selectAllUser(){
-        List<UserVO> user = UserService.findAll();
-        return new ResponseEntity<List<UserVO>>(user, HttpStatus.OK);
+
+        List<UserVO> users = userService.findAll();
+
+        return new ResponseEntity<List<UserVO>>(users, HttpStatus.OK);
     }
 
-    @DeleteMapping("/DeleteUser")
+    @DeleteMapping("/deleteUser")
     public ResponseEntity<UserVO> deleteUser(@RequestParam Integer idx){
-
-        UserVO user = new UserVO();
-        user.setIdx(idx);
-        System.out.println(user.toString());
-
-        UserService.delete(user);
-
+        userRepository.deleteById(idx);
         return new ResponseEntity<UserVO>(HttpStatus.OK);
     }
 
+    // REST
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable(value = "id") int idx) {
+        userRepository.deleteById(idx);;
+    }
 }

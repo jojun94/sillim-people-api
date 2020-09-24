@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by JOJUN.
+ * TOY PROJECT For REST API Server using Spring Boot
  * Date: 2020-07-07
  */
 @SpringBootApplication
