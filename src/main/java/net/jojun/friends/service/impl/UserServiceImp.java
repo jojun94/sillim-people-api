@@ -15,39 +15,45 @@ import java.util.List;
  */
 @Service
 public class UserServiceImp implements UserService {
-    //TODO : BEAN 의존성 주입의 3가지 방법 알아보기 , DELETE 정리
 
-    @Autowired
-    UserRepository UserRepository;
+    private UserRepository userRepository;
+
+    public UserServiceImp(UserRepository userRepository){
+        this.userRepository= userRepository;
+    }
 
     @Override
     public List<UserVO> findAll() {
-        List<UserVO> users = new ArrayList<>();
-        UserRepository.findAll().forEach(e -> users.add(e));
 
+        List<UserVO> users = userRepository.findAll();
         return users;
     }
 
     @Override
     public List<UserVO> findByName(String name) {
-        List<UserVO> users = new ArrayList<>();
-        UserRepository.findByName(name).forEach(e -> users.add(e));
+
+        List<UserVO> users =  userRepository.findByName(name);
         return users;
     }
 
     @Override
     public List<UserVO> findByAge(int age) {
-        List<UserVO> users = new ArrayList<>();
-        UserRepository.findByAge(age).forEach(e -> users.add(e));
+
+        List<UserVO> users =  userRepository.findByAge(age);
         return users;
     }
 
     @Override
     public UserVO save(UserVO user) {
-        UserRepository.save(user);
+
+        userRepository.save(user);
         return user;
     }
 
+    @Override
+    public void deleteById(int idx) {
+        userRepository.deleteById(idx);
+    }
 
 
 }

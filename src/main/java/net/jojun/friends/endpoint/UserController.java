@@ -17,16 +17,18 @@ import java.util.List;
  * REST API SERVER의 CRUD 연습 Controller , JPA 연습
  * Date: 2020-07-07
  */
-//TODO : BEAN 의존성 주입의 3가지 방법 알아보기
+//  BEAN 의존성 주입의 3가지 방법 -> git 에 기록
+//  생성자 주입을 통한 의존성 주입을 권장
 @RestController
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private UserService userService;
 
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserRepository userRepository;
+    /* Spring 4.3부터는 클래스의 생성자가 하나이고 그 생성자로 주입받을 객체가 빈으로 등록되어 있다면 생성자 주입에서 @Autowired를 생략할 수 있다 */
+//    @Autowired
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
 
     @GetMapping
     public String helloWorld(){
@@ -49,13 +51,13 @@ public class UserController {
 
     @DeleteMapping("/deleteUser")
     public ResponseEntity<UserVO> deleteUser(@RequestParam Integer idx){
-        userRepository.deleteById(idx);
+        userService.deleteById(idx);
         return new ResponseEntity<UserVO>(HttpStatus.OK);
     }
 
     // REST
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable(value = "id") int idx) {
-        userRepository.deleteById(idx);;
+        userService.deleteById(idx);;
     }
 }
